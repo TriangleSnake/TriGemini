@@ -1,3 +1,6 @@
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('queryInput').focus();
+});
 (async () => {
     const session = await window.ai.createTextSession();
     var result = "";
