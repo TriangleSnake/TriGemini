@@ -2,88 +2,85 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Gemini Extension</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 20px;
-            width: 300px;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <title>Gemini Extension</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+      width: 360px;   /* 🔹 稍微加寬 */
+      height: 480px;  /* 🔹 拉長 popup 高度 */
+      box-sizing: border-box;
+      border-radius: 12px; /* 🔹 外框圓角 */
+    }
 
-        h2 {
-            font-size: 2em;
-            color: #333;
-            margin-bottom: 10px;
-        }
+    h2 {
+      font-size: 1.8em;
+      color: #333;
+      margin-bottom: 12px;
+      text-align: center;
+    }
 
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 1.5em;
-        }
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px; /* 🔹 圓角輸入框 */
+      box-sizing: border-box;
+      font-size: 1.1em;
+      background-color: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
 
-        input[type="text"]:focus,
-        textarea:focus {
-            border-color: #4CAF50;
-            outline: none;
-            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
-        }
+    input[type="text"]:focus,
+    textarea:focus {
+      border-color: #4CAF50;
+      outline: none;
+      box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+    }
 
-        textarea {
-            resize: none;
-            height: 100px;
-        }
+    textarea {
+      resize: none;
+      height: 300px; /* 🔹 textarea 拉長 */
+      background-color: #fdfdfd;
+    }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      height: 100%;
+    }
 
-        .btn-container {
-            text-align: center;
-        }
-
-        button {
-            padding: 10px 15px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.5em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #responseOutput {
-            background-color: #f8f8f8;
-        }
-    </style>
+    #status {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 6px;
+      padding: 6px 8px;
+      background: #eef2f3;
+      border-radius: 8px; /* 🔹 狀態顯示也圓角 */
+    }
+  </style>
 </head>
 
 <body>
-    <script src="popup.js"></script>
-    <div class="container">
-        
-        <h2>Local Gemini</h2>
-        <input type="text" id="queryInput" placeholder="Enter your query here">
-        <textarea id="responseOutput" rows="10" readonly placeholder="Output"></textarea>
-    </div>
+  <script src="popup.js"></script>
+  <div class="container">
+    <h2>Local Gemini</h2>
 
+    <!-- 🔹 模型狀態 -->
+    <div id="status" style="text-align:center">Checking model status...</div>
+    <!-- 🔹 使用者輸入 -->
+    <input type="text" id="queryInput" placeholder="Enter your query here">
+
+    <!-- 🔹 模型回覆 -->
+    <textarea id="responseOutput" readonly placeholder="Output"></textarea>
+  </div>
 </body>
 
 </html>
